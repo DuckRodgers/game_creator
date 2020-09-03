@@ -13,8 +13,25 @@ def game_maker(df_input):
         Child function which chooses the columns for
         the new game
         """
-        list_players = object['Responsible'].unique() #This obtains the players's name from the db
-        return inter_df
+        players = object['Responsible'].unique() #This obtains the players's name from the db
+        count = 0
+        df_res = pd.DataFrame()
+        df_half = pd.DataFrame()
+        copy = object.copy()
+        for player in players:
+            if (count==0):
+                df_res = copy.loc[copy['Responsible'] == player]
+                df_res['Random'] = np.random.uniform(0.0000,0.9999,size=len(df_res.index))
+                df_res = df_res.sort_values(by=['Random'])
+                df_res = df_res.iloc[:4,:]
+                count += 1
+            else:
+                df_half = copy.loc[copy['Responsible'] == player]
+                df_half['Random'] = np.random.uniform(0.0000,0.9999,size=len(df_half.index))
+                df_half = df_half.sort_values(by=['Random'])
+                list_df = [df_res,df_half]
+                res = pd.concat(list_df)
+        return res
 
     mid_df = refurbish_df(df_input)
     output = BytesIO()
