@@ -35,8 +35,6 @@ def game_maker(df_input):
                 df_res = res
         for player in players:
             df_res[str(player)] = 0
-        df_res['Random'] = np.random.uniform(0.0000,0.9999,size=len(df_res.index))
-        df_res = df_res.sort_values(by=['Random'])
         return df_res
 
     mid_df = refurbish_df(df_input)  #I'm not sure why is this here, but it works
