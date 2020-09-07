@@ -6,3 +6,4 @@ Jinja2==2.11.1
 MarkupSafe==1.1.1
 Werkzeug==0.15.6
 pandas==1.1.1
+numpy==1.19.0
