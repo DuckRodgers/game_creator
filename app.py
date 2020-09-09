@@ -15,6 +15,7 @@ def upload():
         file = request.files['file']
         df = pd.read_excel(file)
         df = game_maker(df) #Call the function
+        name = str('something')
         return send_file(df, as_attachment=True, attachment_filename="mydownload.xlsx")
     else:
         return render_template('upload.html')
