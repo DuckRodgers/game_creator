@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 @app.route('/')
-def index():
+def index(methods=["POST","GET"]):
     if request.method == "POST":
         file = request.files['file']
         df = pd.read_excel(file)
