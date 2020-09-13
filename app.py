@@ -7,7 +7,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if request.method == "POST":
+        file = request.files['file']
+        df = pd.read_excel(file)
+        df = game_maker(df) #Call the function
+        name = str('something')
+        return send_file(df, as_attachment=True, attachment_filename=name)
+    else:
+        return render_template('index.html')
 
 @app.route('/upload', methods=["POST", "GET"])
 def upload():
