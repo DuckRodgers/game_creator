@@ -5,3 +5,6 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
 Werkzeug==0.15.6
+google-cloud==0.34.0
+google-cloud-vision==0.39.0
+uuid===1.30.0
