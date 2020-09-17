@@ -7,3 +7,4 @@ MarkupSafe
 Werkzeug
 google-cloud
 google-cloud-vision
+pandas
